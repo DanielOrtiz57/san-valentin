@@ -3,11 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>¿Quieres ser mi San Valentín? 💖</title>
+
+  <!-- IMPORTANTE para celulares -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      height: 100vh;
+      padding: 20px;
+      min-height: 100vh;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       display: flex;
       align-items: center;
@@ -17,40 +25,46 @@
 
     .card {
       background: white;
-      padding: 40px;
+      padding: 30px 20px;
       border-radius: 25px;
       text-align: center;
       box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-      max-width: 400px;
-      width: 90%;
-      transition: all 0.5s ease;
+      max-width: 420px;
+      width: 100%;
+      transition: all 0.4s ease;
     }
 
     h1 {
       color: #e63946;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1.1rem;
     }
 
     .buttons {
-      margin-top: 30px;
+      margin-top: 25px;
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
     button {
-      padding: 15px 25px;
-      font-size: 18px;
+      padding: 15px 22px;
+      font-size: 1.1rem;
       border: none;
       border-radius: 30px;
       cursor: pointer;
       transition: all 0.3s ease;
+      min-width: 120px;
     }
 
     #yesBtn {
       background: #e63946;
       color: white;
-      font-size: 18px;
     }
 
     #noBtn {
@@ -60,23 +74,34 @@
 
     .final {
       display: none;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
+      animation: fadeIn 0.8s ease forwards;
     }
 
     .heart {
-      font-size: 50px;
+      font-size: 60px;
       animation: pulse 1s infinite;
+      margin-bottom: 10px;
     }
 
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.2); }
       100% { transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* EXTRA para pantallas muy pequeñas */
+    @media (max-width: 360px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      button {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -95,7 +120,7 @@
     <h1>¡Felicidades! 🎉</h1>
     <p>Nos vemos en…</p>
     <h2>🤫 Shhhh 🤫</h2>
-    <p><strong>Te amo ojitossss 💕</strong></p>
+    <p><strong>Te amo 💕</strong></p>
   </div>
 
   <script>
@@ -107,7 +132,7 @@
     let scale = 1;
 
     noBtn.addEventListener("click", () => {
-      scale += 0.2;
+      scale += 0.15;
       yesBtn.style.transform = `scale(${scale})`;
     });
 
